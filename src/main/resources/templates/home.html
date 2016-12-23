@@ -1,0 +1,36 @@
+<html>
+<body>
+
+{{#name}}Messages by:{{.}}!
+<form action="/add-message" method="post">
+    <input type="text" placeholder="Key message here" name="message">
+    <button type="submit">SUBMIT(never!!)</button>
+</form>
+<br>
+<ul>
+{{#message}}
+    <li>{{message}}
+<form action="/delete-message" method="post">
+    <input type="hidden" value="{{id}}" name="id">
+    <button type="submit">Make it disappear</button>
+</form>
+</li>
+{{/message}}
+</ul>
+<br>
+{{/name}}
+
+{{^name}}
+<form action="/login" method="post">
+    <input type="text" placeholder="Enter your name" name="userName">
+    <button type="submit">Login</button>
+</form>
+{{/name}}
+
+</body>
+</html>
+
+
+
+
+
